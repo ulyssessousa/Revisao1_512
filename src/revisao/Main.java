@@ -14,6 +14,16 @@ public class Main {
 		System.out.println("Conta número: "
 							+ c.getNumero());
 		System.out.println("Saldo: " + c.getSaldo());
+		
+		if (c instanceof ContaCorrente) {
+			ContaCorrente cc = (ContaCorrente) c;
+			System.out.println("Limite: " + cc.getLimite());
+			System.out.println("Saldo total: "
+				+ cc.obterSaldoTotal());
+		}
+		
+		
+		
 		System.out.println("---------------------");
 		
 	}
@@ -42,18 +52,13 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		mostrarQuantContas();
+		ContaCorrente cc = new ContaCorrente(100, 200);
 		
-		Conta c1 = new Conta();
-		Conta c2 = new Conta(500);
+		realizarDebito(cc);
+		mostrarInformacoes(cc);
 		
-		mostrarQuantContas();
 		
-		realizarCredito(c1);
-		mostrarInformacoes(c1);
 		
-		realizarDebito(c2);
-		mostrarInformacoes(c2);
 	}
 
 }
